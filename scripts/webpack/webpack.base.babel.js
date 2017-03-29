@@ -62,6 +62,11 @@ export default (options) => {
           loader: `babel-loader`
         },
         {
+          test: /.js$/,
+          loader: [`source-map-loader`],
+          enforce: `pre`
+        },
+        {
           test: /\.css$/,
           include: [
             path.resolve(__dirname, `..`, `..`, `packages`, `node_modules`),
