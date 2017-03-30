@@ -20,7 +20,8 @@
     "stylelint": "stylelint \"packages/node_modules/**/*.css\"",
     "start": "NODE_ENV=development webpack-dev-server --config scripts/webpack/webpack.dev.babel.js --hot --inline --history-api-fallback",
     "start:demo": "NODE_ENV=development webpack-dev-server --config scripts/webpack/webpack.demo.babel.js --hot --inline --history-api-fallback",
-    "start:package": "NODE_ENV=development babel-node --presets=stage-1,es2015 scripts/start-package.js"
+    "start:package": "NODE_ENV=development babel-node --presets=stage-1,es2015 scripts/start-package.js",
+    "link-sdk": "rm -rf ./node_modules/@ciscospark && npm ls -g --depth 0 --json | jq '.dependencies | to_entries[] | .key' | grep @ciscospark | xargs npm link"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "@ciscospark/spark-core": "^0.7.71",
     "@ciscospark/storage-adapter-local-storage": "^0.7.71",
     "ampersand-events": "^2.0.2",
+    "babel-runtime": "^6.23.0",
     "browser-saveas": "^1.0.1",
     "classnames": "^2.2.5",
     "custom-event-polyfill": "^0.3.0",
